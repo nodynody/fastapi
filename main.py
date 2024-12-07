@@ -24,7 +24,7 @@ app.add_middleware(
 )
 
 # 정적 파일 경로 설정
-app.mount("/static", StaticFiles(directory="static", html=True), name="static")
+app.mount("/public", StaticFiles(directory="public", html=True), name="public")
 
 # ViT 모델 및 Feature Extractor 로드
 feature_extractor = ViTFeatureExtractor.from_pretrained('facebook/dino-vits16')
