@@ -207,7 +207,7 @@
                 formData.append('file', file);
 
                 try {
-                    const response = await fetch('https://port-0-fastapi-m4e4rgbj25893554.sel4.cloudtype.app/query/', {
+                    const response = await fetch('http://127.0.0.1:8000/query/', {
                         method: 'POST',
                         body: formData
                     });
