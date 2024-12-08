@@ -1,7 +1,7 @@
 from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import JSONResponse, HTMLResponse
 from PIL import Image
-from transformers import ViTFeatureExtractor, ViTModel
+from transformers import ViTImageProcessor, ViTModel
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
@@ -30,7 +30,7 @@ model = ViTModel.from_pretrained('facebook/dino-vits16').to(device)
 app.mount("/public", StaticFiles(directory="public", html=True), name="public")
 
 # ViT 모델 및 Feature Extractor 로드
-feature_extractor = ViTFeatureExtractor.from_pretrained('facebook/dino-vits16')
+feature_extractor = ViTImageProcessor.from_pretrained('facebook/dino-vits16')
 model = ViTModel.from_pretrained('facebook/dino-vits16').to("cuda")
 
 # ChromaDB 초기화
