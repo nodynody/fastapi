@@ -23,6 +23,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+device = "cuda" if torch.cuda.is_available() else "cpu"
+model = ViTModel.from_pretrained('facebook/dino-vits16').to(device)
+
 # 정적 파일 경로 설정
 app.mount("/public", StaticFiles(directory="public", html=True), name="public")
 
